@@ -1,0 +1,2 @@
+class ScaleDatum < ApplicationRecord
+end
