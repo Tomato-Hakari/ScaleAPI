@@ -28,4 +28,7 @@ production:
   <<: *default
   # database: ScaleAPI_production
   # username: ScaleAPI
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   password: <%= ENV['SCALEAPI_DATABASE_PASSWORD'] %>
