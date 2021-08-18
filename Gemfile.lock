@@ -183,6 +183,7 @@ DEPENDENCIES
   byebug
   listen (~> 3.3)
   mechanize
+  nokogiri
   pg
   puma (~> 5.0)
   rails (~> 6.1.4)
