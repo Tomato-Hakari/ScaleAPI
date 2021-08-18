@@ -47,20 +47,11 @@ date_type = 0
 tag = 6021
 tag_params = 6
 hashoutput = []
-jsonoutput = ''
 
-File.open('../healthTest.json','wb') do |f|
-    url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&tag=#{tag}"
-    page5 = agent.post(url2)
+url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&tag=#{tag}"
+page5 = agent.post(url2)
 
-    hashoutput = JSON.parse(page5.body)
-
-    jsonoutput = JSON.pretty_generate(hashoutput)
-
-    jsonoutput.lstrip!
-
-    JSON.dump(jsonoutput,f)
-end
+hashoutput = JSON.parse(page5.body)
 
 hashoutput["data"].each do |var|
     scaledata = ScaleDatum.find_or_create_by(date: var["date"])
