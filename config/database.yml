@@ -26,8 +26,8 @@ test:
 
 production:
   <<: *default
-  database: ScaleAPI_development
-  username: ScaleAPI
+  # database: ScaleAPI_development
+  # username: ScaleAPI
   adapter: postgresql
   encoding: unicode
   pool: 5
