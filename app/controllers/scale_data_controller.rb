@@ -1,7 +1,3 @@
-require 'mechanize'
-require 'nokogiri'
-require 'json'
-
 class ScaleDataController < ApplicationController
   before_action :healthplanet, only: [:show]
   before_action :set_scale_datum, only: [:show, :update, :destroy]
@@ -55,6 +51,9 @@ class ScaleDataController < ApplicationController
     end
 
     def healthplanet
+      require 'mechanize'
+      require 'nokogiri'
+      require 'json'
 
       client_id = '2372.eJBi93F9fc.apps.healthplanet.jp'
       client_secret = '1626310603695-oXQuPUBFeAnOLnxArpxnkp3KID427EzcMyT4KE5C'
