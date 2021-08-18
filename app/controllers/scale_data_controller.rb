@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'json'
 
 class ScaleDataController < ApplicationController
-  before_action :healthplanet
+  before_action :healthplanet, only: [:show]
   before_action :set_scale_datum, only: [:show, :update, :destroy]
 
   # GET /scale_data
