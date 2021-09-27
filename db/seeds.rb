@@ -10,6 +10,9 @@ require 'mechanize'
 require 'nokogiri'
 require 'json'
 
+time = Time.now - 60 * 60
+time.strftime(%Y%m%d%H%M%S)
+
 client_id = '2372.eJBi93F9fc.apps.healthplanet.jp'
 client_secret = '1626310603695-oXQuPUBFeAnOLnxArpxnkp3KID427EzcMyT4KE5C'
 user_id = 'Teraken_Shuryo'
@@ -48,7 +51,7 @@ tag = 6021
 tag_params = 6
 hashoutput = []
 
-url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&tag=#{tag}"
+url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&from=#{time}&tag=#{tag}"
 page5 = agent.post(url2)
 
 hashoutput = JSON.parse(page5.body)
