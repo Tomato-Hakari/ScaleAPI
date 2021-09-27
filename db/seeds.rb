@@ -11,7 +11,7 @@ require 'nokogiri'
 require 'json'
 
 time = Time.now - 60 * 60
-time.strftime(%Y%m%d%H%M%S)
+time.strftime(%Y%m%d%H%M)
 
 client_id = '2372.eJBi93F9fc.apps.healthplanet.jp'
 client_secret = '1626310603695-oXQuPUBFeAnOLnxArpxnkp3KID427EzcMyT4KE5C'
