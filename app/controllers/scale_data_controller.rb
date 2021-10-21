@@ -99,7 +99,7 @@ class ScaleDataController < ApplicationController
 
       hashoutput = JSON.parse(page5.body)
 
-      if hashoutput["data"] == []
+      if hashoutput["data"] != []
         hashoutput["data"].each do |var|
             scaledata = ScaleDatum.find_or_create_by(date: var["date"])
             scaledata.update(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
