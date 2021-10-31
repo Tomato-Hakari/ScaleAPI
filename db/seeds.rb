@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'mechanize'
-require 'nokogiri'
 require 'json'
 
 client_id = '2372.eJBi93F9fc.apps.healthplanet.jp'
