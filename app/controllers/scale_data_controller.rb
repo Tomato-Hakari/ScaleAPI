@@ -5,7 +5,7 @@ class ScaleDataController < ApplicationController
   def index
     healthplanet
 
-    @scale_data = ScaleDatum.order(date::asc).all
+    @scale_data = ScaleDatum.all.order(date: "ASC")
 
     render json: @scale_data
   end
