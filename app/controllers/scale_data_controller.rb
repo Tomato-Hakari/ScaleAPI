@@ -115,6 +115,6 @@ class ScaleDataController < ApplicationController
 
       logger.debug(result)
 
-      return result.to_s + '00'
+      return result + '00'
     end
 end
