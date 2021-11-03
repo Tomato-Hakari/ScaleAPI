@@ -93,8 +93,9 @@ class ScaleDataController < ApplicationController
       tag = 6021
       tag_params = 6
       hashoutput = []
+      from = getLatestDate
 
-      url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&tag=#{tag}"
+      url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&from=#{from}&tag=#{tag}"
       page5 = agent.post(url2)
 
       hashoutput = JSON.parse(page5.body)
@@ -105,5 +106,13 @@ class ScaleDataController < ApplicationController
             scaledata.update(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
         end
       end
+    end
+
+    def getLatestDate
+      con = ActiveRecord::Base.connection
+
+      result = con.select_values('SELECT date FROM scale_data WHERE CAST(date) = (SELECT CAST(MAX(date)) FROM scale_data)')
+
+      return result
     end
 end
