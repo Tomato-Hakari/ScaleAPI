@@ -111,10 +111,10 @@ class ScaleDataController < ApplicationController
     def getLatestDate
       con = ActiveRecord::Base.connection
 
-      result = con.select_values('SELECT MAX(date) FROM scale_data')
+      result = con.select_values('SELECT MAX(date) FROM scale_data').to_s
 
       logger.debug(result)
 
-      return result * 100
+      return result + '00'
     end
 end
