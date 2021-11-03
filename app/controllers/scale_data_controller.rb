@@ -93,7 +93,7 @@ class ScaleDataController < ApplicationController
       tag = 6021
       tag_params = 6
       hashoutput = []
-      from = getLatestDate.to_s
+      from = getLatestDate
 
       url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&from=#{from}&tag=#{tag}"
       page5 = agent.post(url2)
@@ -115,6 +115,6 @@ class ScaleDataController < ApplicationController
 
       logger.debug(result)
 
-      return result
+      return result * 100
     end
 end
