@@ -117,8 +117,10 @@ class ScaleDataController < ApplicationController
 
       result = con.select_value('SELECT MAX(date) FROM scale_data')
 
-      time = Time.parse(result) + 1 * 60
+      time = Time.parse(result)
 
-      return time.strftime("%Y%m%d%H%M%S")
+      time2 = time + 1 * 60
+
+      return time2.strftime("%Y%m%d%H%M%S")
     end
 end
