@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_07_100902) do
     t.string "tag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "isDelete"
+    t.boolean "isDelete", null: false
   end
 
 end
