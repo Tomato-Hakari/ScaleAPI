@@ -59,6 +59,7 @@ class ScaleDataController < ApplicationController
       require 'mechanize'
       require 'nokogiri'
       require 'json'
+      require 'time'
 
       client_id = '2372.eJBi93F9fc.apps.healthplanet.jp'
       client_secret = '1626310603695-oXQuPUBFeAnOLnxArpxnkp3KID427EzcMyT4KE5C'
@@ -106,8 +107,7 @@ class ScaleDataController < ApplicationController
 
       if hashoutput["data"] != []
         hashoutput["data"].each do |var|
-            scaledata = ScaleDatum.find_or_create_by(date: var["date"])
-            scaledata.update(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
+            ScaleDatum.create(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
         end
       end
     end
@@ -117,8 +117,8 @@ class ScaleDataController < ApplicationController
 
       result = con.select_value('SELECT MAX(date) FROM scale_data')
 
-      logger.debug(result)
+      time = Time.parse(result) + 1 * 60
 
-      return result + "00"
+      return time.strftime("%Y%m%d%H%M%S")
     end
 end
