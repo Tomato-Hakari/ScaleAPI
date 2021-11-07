@@ -108,7 +108,7 @@ class ScaleDataController < ApplicationController
       if hashoutput["data"] != []
         hashoutput["data"].each do |var|
           if var["date"] >= from
-            ScaleDatum.create(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"], isDelete: true)
+            ScaleDatum.create(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
           end
         end
       end
