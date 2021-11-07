@@ -52,7 +52,7 @@ class ScaleDataController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def scale_datum_params
-      params.require(:scale_datum).permit(:date, :keydata, :model, :tag)
+      params.require(:scale_datum).permit(:date, :keydata, :model, :tag, :isDelete)
     end
 
     def healthplanet
@@ -108,7 +108,7 @@ class ScaleDataController < ApplicationController
       if hashoutput["data"] != []
         hashoutput["data"].each do |var|
           if var["date"] >= from
-            ScaleDatum.create(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
+            ScaleDatum.create(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"], isDelete: true)
           end
         end
       end
