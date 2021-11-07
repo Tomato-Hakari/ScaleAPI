@@ -37,7 +37,10 @@ class ScaleDataController < ApplicationController
 
   # DELETE /scale_data/1
   def destroy
-    @scale_datum.destroy
+    if @scale_datum.destroy
+      render json: @scale_datum
+    else
+      render json: @scale_datum.errors, status: :unprocessable_entity
   end
 
   private
