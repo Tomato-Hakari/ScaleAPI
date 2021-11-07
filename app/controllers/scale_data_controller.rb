@@ -41,6 +41,7 @@ class ScaleDataController < ApplicationController
       render json: @scale_datum
     else
       render json: @scale_datum.errors, status: :unprocessable_entity
+    end
   end
 
   private
