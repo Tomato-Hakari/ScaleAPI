@@ -100,7 +100,7 @@ class ScaleDataController < ApplicationController
       hashoutput = []
       from = getLatestDate
 
-      url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&from=#{from}&tag=#{tag}"
+      url2 = "https://www.healthplanet.jp/status/innerscan.json?access_token=#{access_token}&date=#{date_type}&tag=#{tag}"
       page5 = agent.post(url2)
 
       hashoutput = JSON.parse(page5.body)
