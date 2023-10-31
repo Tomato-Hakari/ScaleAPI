@@ -107,10 +107,10 @@ class ScaleDataController < ApplicationController
 
       if hashoutput["data"] != []
         hashoutput["data"].each do |var|
-          if var["date"] >= from
+         #if var["date"] >= from
             scaledata = ScaleDatum.find_or_create_by(date: var["date"], keydata: var["keydata"])
             scaledata.update(date: var["date"], keydata: var["keydata"], model: var["model"], tag: var["tag"])
-          end
+         #end
         end
       end
     end
