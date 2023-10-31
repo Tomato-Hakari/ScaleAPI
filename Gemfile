@@ -42,3 +42,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mechanize'
 
 gem 'nokogiri','~> 1.15','>= 1.15.4'
+
+gem 'net-imap'
+
+gem 'net-pop'
+
+gem 'net-smtp'
