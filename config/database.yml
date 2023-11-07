@@ -26,10 +26,10 @@ test:
 
 production:
   url: <%=ENV['DATABASE_URL'] %>
-  #<<: *default
-  # database: ScaleAPI_development
-  # username: ScaleAPI
-  #adapter: postgresql
-  #encoding: unicode
-  #pool: 5
+  <<: *default
+  database: ScaleAPI_development
+  username: ScaleAPI
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   #password: <%= ENV['SCALEAPI_DATABASE_PASSWORD'] %>
