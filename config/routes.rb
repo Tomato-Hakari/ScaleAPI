@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :scale_data
   post '/index', to: 'dbupdates#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # ルートパスを設定（例: ScaleDataController の index をトップページにする）
+  root 'scale_data#index'
 end
