@@ -4,7 +4,10 @@ class ScaleDataController < ApplicationController
   # GET /scale_data
   def index
     @scale_data = ScaleDatum.all.order(date: 'ASC')
-    render json: @scale_data
+    respond_to do |format|
+      format.html # index.html.erbを表示
+      format.json { render json: @scale_data }
+    end
   end
 
   # GET /scale_data/1

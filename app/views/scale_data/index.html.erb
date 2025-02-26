@@ -1,0 +1,22 @@
+<h1>Health Planet Data</h1>
+<div id="data-container">
+  <!-- ここにデータを表示するJavaScriptを追加 -->
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/scale_data.json')
+    .then(response => response.json())
+    .then(data => {
+      // データを表示するロジック
+      const container = document.getElementById('data-container');
+      const dataHtml = data.map(item => 
+        `<div class="data-item">
+           <p>日付: ${item.date}</p>
+           <p>値: ${item.keydata}</p>
+           <p>モデル: ${item.model}</p>
+         </div>`
+      ).join('');
+      container.innerHTML = dataHtml;
+    });
+});
+</script>
